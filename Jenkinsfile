@@ -23,7 +23,7 @@ pipeline{
         steps{
             script{
                 withDockerRegistry(credentialsId:"dockerhub1",url:''){
-                  app.push("latest" + " " + "${env.BUILD_NUMBER}")
+                  app.push("latest" + "${env.BUILD_NUMBER}")
                     
                 }
 
