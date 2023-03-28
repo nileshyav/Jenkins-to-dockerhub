@@ -13,7 +13,7 @@ pipeline{
         steps{
             
             script{
-                app = docker.build("nileshyav/simpleapp:v1")
+                app = docker.build("nileshyav/simpleapp")
             }
             
         }
@@ -23,7 +23,7 @@ pipeline{
         steps{
             script{
                 withDockerRegistry(credentialsId:"dockerhub1",url:''){
-                  app.push( "latest" + ":" +"${env.BUILD_NUMBER}")
+                  app.push("latest" + " " + "${env.BUILD_NUMBER}")
                     
                 }
 
